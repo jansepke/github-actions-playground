@@ -20,7 +20,7 @@ jobs:
       - name: build
         run: |
           echo "running build..."
-          sleep 10
+          sleep 2
           echo "build done"
   test:
     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
       - name: test
         run: |
           echo "running test..."
-          sleep 10
+          sleep 2
           echo "test done"
   lint:
     runs-on: ubuntu-latest
@@ -50,7 +50,7 @@ jobs:
       - name: lint
         run: |
           echo "running lint..."
-          sleep 10
+          sleep 2
           echo "lint done"
 
   deploy-to-test:
