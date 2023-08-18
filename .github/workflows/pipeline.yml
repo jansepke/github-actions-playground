@@ -19,9 +19,9 @@ jobs:
         run: npm ci
       - name: build
         run: |
-          "echo running build..."
-          "sleep 10"
-          "echo build done"
+          echo "running build..."
+          sleep 10
+          echo "build done"
   test:
     runs-on: ubuntu-latest
     steps:
@@ -34,9 +34,9 @@ jobs:
         run: npm ci
       - name: test
         run: |
-          "echo running test..."
-          "sleep 10"
-          "echo test done"
+          echo "running test..."
+          sleep 10
+          echo "test done"
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -49,9 +49,9 @@ jobs:
         run: npm ci
       - name: lint
         run: |
-          "echo running lint..."
-          "sleep 10"
-          "echo lint done"
+          echo "running lint..."
+          sleep 10
+          echo "lint done"
 
   deploy:
     runs-on: ubuntu-latest
@@ -60,6 +60,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: deploy
         run: |
-          "echo running deploy..."
-          "sleep 20"
-          "echo deploy done"
+          echo "running deploy..."
+          sleep 20
+          echo "deploy done"
