@@ -15,10 +15,13 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "npm"
-      - run: npm ci
-      - run: "echo running build..."
-      - run: "sleep 10"
-      - run: "echo build done"
+      - name: install deps
+        run: npm ci
+      - name: build
+        run: |
+          "echo running build..."
+          "sleep 10"
+          "echo build done"
   test:
     runs-on: ubuntu-latest
     steps:
@@ -27,10 +30,13 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "npm"
-      - run: npm ci
-      - run: "echo running test..."
-      - run: "sleep 5"
-      - run: "echo test done"
+      - name: install deps
+        run: npm ci
+      - name: test
+        run: |
+          "echo running test..."
+          "sleep 10"
+          "echo test done"
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -39,7 +45,10 @@ jobs:
         with:
           node-version: "lts/*"
           cache: "npm"
-      - run: npm ci
-      - run: "echo running lint..."
-      - run: "sleep 3"
-      - run: "echo lint done"
+      - name: install deps
+        run: npm ci
+      - name: lint
+        run: |
+          "echo running lint..."
+          "sleep 10"
+          "echo lint done"
