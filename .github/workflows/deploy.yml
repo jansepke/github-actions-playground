@@ -19,3 +19,15 @@ jobs:
           echo "running deploy of ${{ github.run_number }}-${{ github.run_id }} to ${{ inputs.environment }}..."
           sleep 2
           echo "deploy done"
+      - uses: actions/checkout@v3
+      - name: test-1
+        run: |
+          echo "running test-1"
+          sleep 2
+          echo "done"
+      - uses: actions/checkout@v3
+      - name: test-2
+        run: |
+          echo "running test-2"
+          sleep 2
+          echo "done"
