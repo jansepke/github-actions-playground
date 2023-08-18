@@ -53,13 +53,20 @@ jobs:
           sleep 10
           echo "lint done"
 
-  deploy:
-    runs-on: ubuntu-latest
+  deploy-to-test:
     needs: [build, test, lint]
-    steps:
-      - uses: actions/checkout@v3
-      - name: deploy
-        run: |
-          echo "running deploy..."
-          sleep 20
-          echo "deploy done"
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: test
+
+  deploy-to-stage:
+    needs: [deploy-to-test]
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: stage
+
+  deploy-to-prod:
+    needs: [deploy-to-stage]
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: prod

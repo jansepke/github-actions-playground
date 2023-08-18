@@ -1,0 +1,19 @@
+name: deploy
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: deploy
+        run: |
+          echo "running deploy to ${{ inputs.config-path }}..."
+          sleep 20
+          echo "deploy done"
