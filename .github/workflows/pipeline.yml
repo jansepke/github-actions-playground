@@ -12,47 +12,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: ./.github/actions/run
+        name: build
         with:
-          node-version: "lts/*"
-          cache: "npm"
-      - name: install deps
-        run: npm ci
-      - name: build
-        run: |
-          echo "running build..."
-          sleep 2
-          echo "build done"
+          command: |
+            npm ci
+            echo "running build..."
+            sleep 2
+            echo "build done"
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: ./.github/actions/run
+        name: test
         with:
-          node-version: "lts/*"
-          cache: "npm"
-      - name: install deps
-        run: npm ci
-      - name: test
-        run: |
-          echo "running test..."
-          sleep 2
-          echo "test done"
+          command: |
+            npm ci
+            echo "running test..."
+            sleep 2
+            echo "test done"
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: ./.github/actions/run
+        name: lint
         with:
-          node-version: "lts/*"
-          cache: "npm"
-      - name: install deps
-        run: npm ci
-      - name: lint
-        run: |
-          echo "running lint..."
-          sleep 2
-          echo "lint done"
+          command: |
+            npm ci
+            echo "running lint..."
+            sleep 2
+            echo "lint done"
 
   deploy-to-test:
     needs: [build, test, lint]

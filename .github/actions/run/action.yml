@@ -1,0 +1,15 @@
+name: run
+description: run command
+inputs:
+  command:
+    description: command to run
+    required: true
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: "lts/*"
+        cache: "npm"
+    - shell: bash
+      run: ${{ inputs.command }}
