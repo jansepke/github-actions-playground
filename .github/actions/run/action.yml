@@ -11,5 +11,6 @@ runs:
       with:
         node-version: "lts/*"
         cache: "npm"
-    - shell: bash
+    - name: run command
+      shell: bash
       run: ${{ inputs.command }}
