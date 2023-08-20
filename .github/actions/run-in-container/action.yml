@@ -6,6 +6,6 @@ inputs:
     required: true
 runs:
   using: docker
-  image: node
+  image: alpine
   args:
     - ${{ inputs.command }}

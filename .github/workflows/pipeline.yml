@@ -16,7 +16,6 @@ jobs:
         name: build
         with:
           command: |
-            npm ci
             echo "running build..."
             sleep 2
             echo "build done"
