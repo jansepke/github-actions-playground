@@ -5,8 +5,7 @@ inputs:
     description: command to run
     required: true
 runs:
-  using: composite
-  steps:
-    - name: run command
-      shell: bash
-      run: ${{ inputs.command }}
+  using: docker
+  image: node
+  args:
+    - ${{ inputs.command }}
